@@ -1,7 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +10,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class first_autotest_demoqa {
+public class firstAutotestDemoqa {
 
     @BeforeAll
     static void beforeAll() {
@@ -19,7 +18,7 @@ public class first_autotest_demoqa {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000; // default 4000
+        //Configuration.timeout = 5000; // default 4000
     }
 
 
@@ -30,8 +29,7 @@ public class first_autotest_demoqa {
         $("#firstName").setValue("Jimmy");
         $("#lastName").setValue("Recard");
         $("#userEmail").setValue("JimmyRecard@good.boy");
-        // $("#gender-radio-1.custom-control-input").click(); почему не работает ?
-        $("[for=gender-radio-1]").click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("9997775533");
 
         // Date
@@ -53,8 +51,10 @@ public class first_autotest_demoqa {
         $("[for=hobbies-checkbox-3]").click();
 
         //loading pict
-        File file = new File("src/test/java/tests/files/pict.jpg");
+        //$("#uploadPicture").uploadFromClasspath("pict.jpg");  это не работает не може найти файл
+        File file = new File("src/test/java/tests/resources/pict.jpg");
         $("#uploadPicture").uploadFile(file);
+
 
         //Address
         $("#currentAddress").setValue("Some street 1");
