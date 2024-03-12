@@ -4,13 +4,11 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class firstAutotestDemoqa {
+public class FirstAutotestDemoqa {
 
     @BeforeAll
     static void beforeAll() {
@@ -51,23 +49,23 @@ public class firstAutotestDemoqa {
         $("[for=hobbies-checkbox-3]").click();
 
         //loading pict
-        //$("#uploadPicture").uploadFromClasspath("pict.jpg");  это не работает не може найти файл
-        File file = new File("src/test/java/tests/resources/pict.jpg");
-        $("#uploadPicture").uploadFile(file);
+        //это не работает не може найти файл
+        $("#uploadPicture").uploadFromClasspath("pict.jpg");
+        //File file = new File("src/test/java/tests/resources/pict.jpg");
+        //$("#uploadPicture").uploadFile(file);
 
 
         //Address
         $("#currentAddress").setValue("Some street 1");
 
         //State
+        $("#state").scrollTo();
         $("#state").click();
         $(byText("NCR")).click();
 
         //City
         $("#city").click();
         $(byText("Noida")).click();
-
-
 
         $("#submit").click();
 
