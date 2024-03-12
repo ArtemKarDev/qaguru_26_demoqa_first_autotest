@@ -18,8 +18,6 @@ public class FirstAutotestDemoqa {
         //Configuration.holdBrowserOpen = true;
         //Configuration.timeout = 5000; // default 4000
     }
-
-
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
@@ -49,11 +47,8 @@ public class FirstAutotestDemoqa {
         $("[for=hobbies-checkbox-3]").click();
 
         //loading pict
-        //это не работает не може найти файл
-        $("#uploadPicture").uploadFromClasspath("pict.jpg");
-        //File file = new File("src/test/java/tests/resources/pict.jpg");
-        //$("#uploadPicture").uploadFile(file);
 
+        $("#uploadPicture").uploadFromClasspath("pict.jpg");
 
         //Address
         $("#currentAddress").setValue("Some street 1");
